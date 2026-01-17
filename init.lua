@@ -10,7 +10,7 @@ require("telescope")
 require("mini")
 
 vim.pack.add({
-	{ src = "https://github.com/catppuccin/nvim" },
+	{ src = "https://github.com/rebelot/kanagawa.nvim" },
 })
 
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("kanagawa")
