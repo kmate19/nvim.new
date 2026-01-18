@@ -20,10 +20,9 @@ vim.api.nvim_create_autocmd("FileType", {
 			return
 		end
 
-		local installed = require("nvim-treesitter").get_installed()
-		local has_parser = vim.tbl_contains(installed, ft)
+		local parsers = vim.api.nvim_get_runtime_file("parser/" .. ft .. ".*", false)
 
-		if has_parser then
+		if #parsers > 0 then
 			pcall(vim.treesitter.start, args.buf)
 		end
 	end,

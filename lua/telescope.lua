@@ -12,21 +12,19 @@ vim.keymap.set("n", "<leader>wo", function()
 end, { desc = "Telescope Live Grep Open Buffers" })
 vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "Telescope Search Buffers" })
 
-if vim.fn.has("macunix") then
-	vim.pack.add({
-		{ src = "https://github.com/stevearc/oil.nvim" },
-	})
-	require("oil").setup({
-		default_file_explorer = true,
-		delete_to_trash = true,
-		skip_confirm_for_simple_edits = true,
-		view_options = {
-			show_hidden = true,
-			natural_order = false,
-			is_always_hidden = function(name, _)
-				return name == ".." or name == ".git"
-			end,
-		},
-	})
-	vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory with Oil." })
-end
+vim.pack.add({
+	{ src = "https://github.com/stevearc/oil.nvim" },
+})
+require("oil").setup({
+	default_file_explorer = true,
+	delete_to_trash = true,
+	skip_confirm_for_simple_edits = true,
+	view_options = {
+		show_hidden = true,
+		natural_order = false,
+		is_always_hidden = function(name, _)
+			return name == ".." or name == ".git"
+		end,
+	},
+})
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory with Oil." })
