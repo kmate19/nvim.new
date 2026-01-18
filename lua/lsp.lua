@@ -51,6 +51,9 @@ require("blink.cmp").setup({
 	},
 })
 
+-- this causes flickering with highlights when enabled currently for me
+vim.lsp.semantic_tokens.enable(false)
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 	callback = function(event)

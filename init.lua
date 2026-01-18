@@ -7,6 +7,7 @@ require("prefs")
 
 require("lsp")
 require("telescope")
+require("treesitter")
 require("mini")
 
 vim.pack.add({
